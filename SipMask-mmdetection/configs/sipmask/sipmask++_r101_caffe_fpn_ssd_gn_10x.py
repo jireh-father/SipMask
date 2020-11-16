@@ -130,14 +130,22 @@ test_pipeline = [
 #         ])
 # ]
 data = dict(
-    samples_per_gpu=3,
+    imgs_per_gpu=3,
     workers_per_gpu=3,
     train=dict(
-        type=dataset_type,
-        ann_file=data_root + 'fashion/train_split.json',
-        img_prefix=data_root + 'fashion/train_images',
-        # classes=classes,
-        pipeline=train_pipeline),
+        type='RepeatDataset',
+        times=5,
+        dataset=dict(
+            type=dataset_type,
+            ann_file=data_root + 'fashion/train_total.json',
+            img_prefix=data_root + 'fashion/train_images',
+            pipeline=train_pipeline)),
+    # train=dict(
+    #     type=dataset_type,
+    #     ann_file=data_root + 'fashion/train_split.json',
+    #     img_prefix=data_root + 'fashion/train_images',
+    #     # classes=classes,
+    #     pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
         ann_file=data_root + 'fashion/val_split.json',
@@ -197,6 +205,6 @@ total_epochs = 24
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dirs/sipmask++_r101_caffe_fpn_gn_10x'
-load_from = None
+load_from = 'sipmask++_r101_caffe_ssd_gn_10x.pth'
 resume_from = None
 workflow = [('train', 1)]
