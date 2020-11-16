@@ -14,7 +14,7 @@ from .registry import DATASETS
 
 
 @DATASETS.register_module
-class CocoDataset(CustomDataset):
+class FashionDataset(CustomDataset):
     CLASSES = ('top',
                'blouse',
                't-shirt',
