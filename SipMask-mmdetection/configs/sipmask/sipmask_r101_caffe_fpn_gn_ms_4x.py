@@ -137,6 +137,6 @@ total_epochs = 48
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dirs/sipmask_r101_caffe_fpn_gn_ms_4x'
-load_from = "sipmask_r101_caffe_ms_4x.pth"
+load_from = ""
 resume_from = None
 workflow = [('train', 1)]
