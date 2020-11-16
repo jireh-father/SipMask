@@ -85,9 +85,10 @@ test_pipeline = [
             dict(type='Collect', keys=['img']),
         ])
 ]
+
 data = dict(
     imgs_per_gpu=3,
-    workers_per_gpu=3,
+    workers_per_gpu=4,
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'fashion/train_split.json',
