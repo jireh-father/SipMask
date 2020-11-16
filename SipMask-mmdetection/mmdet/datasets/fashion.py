@@ -15,15 +15,15 @@ from .builder import DATASETS
 from .custom import CustomDataset
 import json
 
-try:
-    import pycocotools
+# try:
+import pycocotools
 
-    assert pycocotools.__version__ >= '12.0.2'
-except AssertionError:
-    raise AssertionError('Incompatible version of pycocotools is installed. '
-                         'Run pip uninstall pycocotools first. Then run pip '
-                         'install mmpycocotools to install open-mmlab forked '
-                         'pycocotools.')
+#     assert pycocotools.__version__ >= '12.0.2'
+# except AssertionError:
+#     raise AssertionError('Incompatible version of pycocotools is installed. '
+#                          'Run pip uninstall pycocotools first. Then run pip '
+#                          'install mmpycocotools to install open-mmlab forked '
+#                          'pycocotools.')
 
 
 @DATASETS.register_module()
